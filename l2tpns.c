@@ -124,6 +124,7 @@ linked_list *plugins[MAX_PLUGIN_TYPES];
 
 config_descriptt config_values[] = {
 	CONFIG("l2tp_port", l2tp_port, INT),
+	CONFIG("nsctl_port", nsctl_port, INT),
 	CONFIG("debug", debug, INT),
 	CONFIG("log_file", log_filename, STRING),
 	CONFIG("pid_file", pid_file, STRING),
@@ -896,7 +897,7 @@ static void initcontrol(void)
 	// Control
 	memset(&addr, 0, sizeof(addr));
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(NSCTL_PORT);
+	addr.sin_port = htons(config->nsctl_port);
 	controlfd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	setsockopt(controlfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
 	setsockopt(controlfd, SOL_IP, IP_PKTINFO, &on, sizeof(on)); // recvfromto
