@@ -387,7 +387,7 @@ void radiussend(uint16_t r, uint8_t state)
 	{
 		*p = 5;		// NAS-Port
 		p[1] = 6;
-		*(uint32_t *) (p + 2) = htonl(s);
+		*(uint32_t *) (p + 2) = htonl(s + config->radius_nas_offset);
 		p += p[1];
 
 	        *p = 6;		// Service-Type
