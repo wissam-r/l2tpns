@@ -664,6 +664,7 @@ struct Tstats
 typedef struct
 {
 	int             l2tp_port;                      // port number of L2TP socket to listen on
+	int             nsctl_port;                     // port number of NSCTL socket to listen on
 	int		debug;				// debugging level
 	time_t		start_time;			// time when l2tpns was started
 	char		bandwidth[256];			// current bandwidth
