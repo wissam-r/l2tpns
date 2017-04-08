@@ -145,6 +145,7 @@ config_descriptt config_values[] = {
 	CONFIG("radius_interim", radius_interim, INT),
 	CONFIG("radius_secret", radiussecret, STRING),
 	CONFIG("radius_authtypes", radius_authtypes_s, STRING),
+	CONFIG("radius_nas_offset", radius_nas_offset, INT),
 	CONFIG("radius_dae_port", radius_dae_port, SHORT),
 	CONFIG("radius_bind_min", radius_bind_min, SHORT),
 	CONFIG("radius_bind_max", radius_bind_max, SHORT),
