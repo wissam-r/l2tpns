@@ -5629,6 +5629,9 @@ static void update_config()
 
 
 	memcpy(config->old_plugins, config->plugins, sizeof(config->plugins));
+        if (!config->l2tp_port) config->l2tp_port = L2TPPORT;
+        if (!config->nsctl_port) config->nsctl_port = NSCTL_PORT;
+        if (!config->radius_nas_offset) config->radius_nas_offset = 0;
 	if (!config->multi_read_count) config->multi_read_count = 10;
 	if (!config->cluster_address) config->cluster_address = inet_addr(DEFAULT_MCAST_ADDR);
 	if (!*config->cluster_interface)
