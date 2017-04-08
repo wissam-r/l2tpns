@@ -123,6 +123,7 @@ linked_list *plugins[MAX_PLUGIN_TYPES];
 #define CONFIG(NAME, MEMBER, TYPE) { NAME, offsetof(configt, MEMBER), membersize(configt, MEMBER), TYPE }
 
 config_descriptt config_values[] = {
+	CONFIG("l2tp_port", l2tp_port, INT),
 	CONFIG("debug", debug, INT),
 	CONFIG("log_file", log_filename, STRING),
 	CONFIG("pid_file", pid_file, STRING),
@@ -935,7 +936,7 @@ static void initudp(int * pudpfd, in_addr_t ip_bind)
 	// Tunnel
 	memset(&addr, 0, sizeof(addr));
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(L2TPPORT);
+ 	addr.sin_port = htons(config->l2tp_port);
 	addr.sin_addr.s_addr = ip_bind;
 	(*pudpfd) = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	setsockopt((*pudpfd), SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
