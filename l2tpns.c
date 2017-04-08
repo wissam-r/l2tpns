@@ -5120,7 +5120,7 @@ int main(int argc, char *argv[])
 	time(&basetime);             // start clock
 
 	// scan args
-	while ((i = getopt(argc, argv, "dvc:h:")) >= 0)
+	while ((i = getopt(argc, argv, "dvc:h:p:")) >= 0)
 	{
 		switch (i)
 		{
@@ -5137,6 +5137,9 @@ int main(int argc, char *argv[])
 		case 'c':
 			optconfig = optarg;
 			break;
+		case 'p':
+                        telnet_port = atoi(optarg);
+			break;
 		case 'h':
 			snprintf(hostname, sizeof(hostname), "%s", optarg);
 			break;
@@ -5145,6 +5148,7 @@ int main(int argc, char *argv[])
 			       "\t-d\t\tDetach from terminal\n"
 			       "\t-c <file>\tConfig file\n"
 			       "\t-h <hostname>\tForce hostname\n"
+			       "\t-p <port\tTelnet port\n"
 			       "\t-v\t\tDebug\n");
 
 			return (0);
@@ -5164,7 +5168,7 @@ int main(int argc, char *argv[])
 	/* set hostname /after/ having read the config file */
 	if (*config->hostname)
 		strcpy(hostname, config->hostname);
-	cli_init_complete(hostname);
+	cli_init_complete(hostname, telnet_port);
 	update_config();
 	init_tbf(config->num_tbfs);
 

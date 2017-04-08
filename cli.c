@@ -271,7 +271,7 @@ void init_cli()
 	}
 }
 
-void cli_init_complete(char *hostname)
+void cli_init_complete(char *hostname, int telnet_port)
 {
 	int on = 1;
 	struct sockaddr_in addr;
@@ -292,7 +292,7 @@ void cli_init_complete(char *hostname)
 	}
 	addr.sin_family = AF_INET;
 	addr.sin_addr.s_addr = config->cli_bind_address; /* defaults to INADDR_ANY */
-	addr.sin_port = htons(23);
+	addr.sin_port = htons(telnet_port);
 	if (bind(clifd, (void *) &addr, sizeof(addr)) < 0)
 	{
 		LOG(0, 0, 0, "Error binding cli on port 23: %s\n", strerror(errno));
