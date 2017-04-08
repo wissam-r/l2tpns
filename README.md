@@ -1,7 +1,7 @@
 # l2tpns
 
 This project is a Fork from This project: http://git.sameswireless.fr/l2tpns.git .<br />
-The version that is Forked from is 2.2.1.2fdn3.19 .<br />
+The Fork base Verion is 2.2.1.2fdn3.19 .<br />
 There are new features has beed added to the project beside the ones from the original project.<br />
 
 ## Options:
