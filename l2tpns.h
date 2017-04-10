@@ -1003,7 +1003,7 @@ void become_master(void);	// We're the master; kick off any required master init
 
 // cli.c
 void init_cli();
-void cli_init_complete(char *hostname);
+void cli_init_complete(char *hostname, int telnet_port);
 void cli_do_file(FILE *fh);
 void cli_do(int sockfd);
 int cli_arg_help(struct cli_def *cli, int cr_ok, char *entry, ...);
