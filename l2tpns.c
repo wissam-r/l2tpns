@@ -5116,7 +5116,7 @@ int main(int argc, char *argv[])
 	int i;
 	int optdebug = 0;
 	char *optconfig = CONFIGFILE;
-	telnet_port = 23;
+	int telnet_port = 23;
 	time(&basetime);             // start clock
 
 	// scan args
